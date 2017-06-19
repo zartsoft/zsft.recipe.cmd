@@ -65,7 +65,7 @@ class ShellRecipe(object):
                                   options.get('shell-options') or '')
             self.log.info('Executing %s script', prefix)
             self._execute(script, env=env, shell=shell, shell_opts=shell_opts)
-        return options['location']
+        return ()
 
     def install(self):
         """Execute script on install phase"""
