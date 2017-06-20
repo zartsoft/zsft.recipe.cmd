@@ -38,18 +38,24 @@ class ShellRecipe(object):
             if os.name == 'nt': # TODO: jython?
                 suffix = '.ps1' if 'powershell' in shell.lower() else '.bat'
             script = os.path.join(path, 'run'+suffix)
-            
+
+            if not shell:
+                if os.name == 'nt':
+                    shell = os.environ.get('COMSPEC', 'COMMAND.COM')
+                else:
+                    shell = os.environ.get('SHELL', '/bin/sh')
+
             with open(script, 'w') as f:
                 f.write(content)
             del f
-            
+
             if shell == 'internal':
                 self.log.debug('Executing python code: %r', content)
                 exec(content)
             else:
                 command = list(filter(None, [shell, shell_opts, script]))
                 self.log.debug('Executing: %r, shell=%r', command, shell)
-                check_call(command, env=env, shell=not shell)
+                check_call(command, env=env)
         finally:
             shutil.rmtree(path)
 
