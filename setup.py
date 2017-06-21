@@ -9,7 +9,7 @@ def contents(*names):
 
 setup(
     name='zsft.recipe.cmd',
-    version='0.2',
+    version='0.3',
     description='Buildout recipe to execute commands via shell or python',
     long_description=contents('README.rst', 'CHANGES.rst'),
     author='Zart Software',
