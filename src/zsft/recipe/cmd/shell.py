@@ -42,8 +42,10 @@ class ShellRecipe(object):
             if not shell:
                 if os.name == 'nt':
                     shell = os.environ.get('COMSPEC', 'COMMAND.COM')
+                    shell_opts = '/c'
                 else:
                     shell = os.environ.get('SHELL', '/bin/sh')
+                    shell_opts = ''
 
             with open(script, 'w') as f:
                 f.write(content)
