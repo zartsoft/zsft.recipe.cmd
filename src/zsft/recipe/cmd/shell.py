@@ -10,7 +10,7 @@ def _env(env):
     """Parse multiline KEY=VALUE string into dict."""
     return dict((key.strip(), val)
          for line in env.strip().splitlines()
-             for key, _, val in line.partition('='))
+             for key, _, val in [line.partition('=')])
 
 class ShellRecipe(object):
     """zc.buildout recipe to execute commands with shell"""
