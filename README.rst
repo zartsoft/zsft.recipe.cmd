@@ -78,14 +78,14 @@ Examples
         os.chdir('opt')
         check_call(['./config ; make'], shell=True)
     
-    [msbuild;windows]
+    [msbuild:windows]
     recipe = zsft.recipe.cmd
     configuration = Release
     platform = Win32
     install =
         msbuild.exe /t:Build /p:Configuration=${:configuration} /p:Platform=${:platform}
 
-    [service-restart;windows]
+    [service-restart:windows]
     recipe = zsft.recipe.cmd
     shell = powershell.exe
     shell-options = -File
