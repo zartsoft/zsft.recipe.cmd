@@ -1,6 +1,13 @@
 Change history
 ==============
 
+0.4   (2017-06-21)
+------------------
+
+- Fix environment parser
+- Fix conditional section syntax in example
+- Cleanup logging
+
 0.3.1 (2017-06-21)
 ------------------
 
