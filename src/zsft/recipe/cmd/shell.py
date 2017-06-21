@@ -56,7 +56,7 @@ class ShellRecipe(object):
                 exec(content)
             else:
                 command = list(filter(None, [shell, shell_opts, script]))
-                self.log.debug('Executing: %r, shell=%r', command, shell)
+                self.log.debug('Executing: %r', command)
                 check_call(command, env=env)
         finally:
             shutil.rmtree(path)
